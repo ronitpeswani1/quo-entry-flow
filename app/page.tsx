@@ -1,28 +1,47 @@
+"use client";
+
 import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main style={{ padding: 40 }}>
-      <h1>Quo – Entry Flow Prototype</h1>
+    <main className="min-h-screen bg-gray-50 flex items-center justify-center px-6">
+      <div className="w-full max-w-lg bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+        
+        {/* Step Title */}
+        <h1 className="text-2xl font-semibold text-gray-900">
+          Are you buying a property?
+        </h1>
 
-      <p style={{ marginTop: 12 }}>
-        Are you buying a property?
-      </p>
+        <p className="mt-2 text-gray-600 text-sm">
+          This helps us understand your situation before we build your offer strategy.
+        </p>
 
-      <div style={{ marginTop: 24 }}>
-        <Link href="/intent">
-          <button style={{ padding: "10px 14px" }}>
-            Buyer
-          </button>
-        </Link>
-      </div>
+        {/* Options */}
+        <div className="mt-6 space-y-4">
 
-      <div style={{ marginTop: 12 }}>
-        <Link href="/intent?sell=true">
-          <button style={{ padding: "10px 14px" }}>
-            Buyer who also needs to sell
-          </button>
-        </Link>
+          {/* Buyer Only */}
+          <Link href="/intent" className="block">
+            <div className="border border-gray-300 rounded-xl p-4 hover:border-gray-900 transition cursor-pointer">
+              <div className="font-medium text-gray-900">Buyer</div>
+              <div className="text-sm text-gray-500 mt-1">
+                I’m only purchasing a property
+              </div>
+            </div>
+          </Link>
+
+          {/* Buyer + Needs to Sell */}
+          <Link href="/intent?sell=true" className="block">
+            <div className="border border-gray-300 rounded-xl p-4 hover:border-gray-900 transition cursor-pointer">
+              <div className="font-medium text-gray-900">
+                Buyer who also needs to sell
+              </div>
+              <div className="text-sm text-gray-500 mt-1">
+                I need to sell my current home as well
+              </div>
+            </div>
+          </Link>
+
+        </div>
       </div>
     </main>
   );
